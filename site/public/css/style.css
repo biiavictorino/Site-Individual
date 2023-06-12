@@ -1,0 +1,279 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+#topo {
+    background: #0f0834;
+    overflow: hidden;
+    padding: 15px;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.logo {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+/*Menu do site*/
+.menu {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+.menu li {
+    list-style: none;
+    display: inline-block;
+    padding: 15px 40px;
+    text-transform: uppercase;
+}
+
+.menu li a {
+    color: #ddd;
+    text-decoration: none;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.menu li a:hover {
+    color: #fff;
+    border-bottom: 3px solid #8b16e3;
+}
+/*Botão estilizado*/
+.bts .bt-acesse:hover{
+    color: #000;
+}
+.bts {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.bt-acesse {
+    display: inline-block;
+    padding: 10px 30px;
+    text-decoration: none;
+    color: #fff;
+    margin-top: 30px;
+    border-radius: 3px;
+    /*Ferramentas CSS para web designers(site CSS Matic)*/
+    background: #ec00fc;
+    background: -moz-linear-gradient(-45deg, #ec00fc 0%, #44cfec 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, #ec00fc), color-stop(100%, #44cfec));
+    background: -webkit-linear-gradient(-45deg, #ec00fc 0%, #44cfec 100%);
+    background: -o-linear-gradient(-45deg, #ec00fc 0%, #44cfec 100%);
+    background: -ms-linear-gradient(-45deg, #ec00fc 0%, #44cfec 100%);
+    background: linear-gradient(135deg, #ec00fc 0%, #44cfec 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ec00fc', endColorstr='#44cfec', GradientType=1);
+    /*Ferramenta de Clip-path maker (estilizar o botão)*/
+    clip-path: polygon(90% 0, 100% 30%, 100% 100%, 0 100%, 0 0);
+}
+
+/*Imagem banner*/
+.img-banner{
+    background: url(./banner.jpg) no-repeat center;
+    background-size: cover;
+    height: 85vh;
+}
+#banner h4{
+    margin: 0;
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    padding-top: 240px;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+#banner h1{
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    font-size: 60px;
+}
+#banner .bt-banner{
+    text-align: center;
+}
+.bt-banner .bt-acesse:hover{
+        color: #000;
+}
+
+/*dimensão da tela do site */
+@media(width:100%){
+    .logo, .menu, .bts, .banner, .sobremim, .img-contato{
+        width: 100vh;
+    }
+}
+
+/* sobre mim */
+.sobre-mim {
+    background: #140a48;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 160px;
+    color: #fff;
+    padding: 250px;
+  }
+  
+  .imagem {
+    margin-right: 200px;
+  }
+  
+  .imagem img {
+    width: 250px;
+    height: auto;
+    border-radius: 50%;
+  }
+  
+  .texto {
+    max-width: 600px;
+  }
+  
+  .texto h2 {
+    font-size: 35px;
+    margin-bottom: 10px;
+    margin-left: 35%;
+  }
+  
+  .texto p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+/*Formulario*/
+.formulario{
+    padding: 200px;
+    text-align: center;
+}
+
+.formulario h2 {
+    text-align: center;
+    color: #fff;
+    text-shadow: 6px 6px 6px #000;
+    font-size: 50px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 50%;
+    padding: 5px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+}
+
+input[type="submit"] {
+    /*Ferramentas CSS para web designers(site CSS Matic)*/
+    background: rgba(236, 0, 252, 1);
+    background: -moz-linear-gradient(-45deg, rgba(236, 0, 252, 1) 0%, rgba(68, 207, 236, 1) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(236, 0, 252, 1)), color-stop(100%, rgba(68, 207, 236, 1)));
+    background: -webkit-linear-gradient(-45deg, rgba(236, 0, 252, 1) 0%, rgba(68, 207, 236, 1) 100%);
+    background: -o-linear-gradient(-45deg, rgba(236, 0, 252, 1) 0%, rgba(68, 207, 236, 1) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(236, 0, 252, 1) 0%, rgba(68, 207, 236, 1) 100%);
+    background: linear-gradient(135deg, rgba(236, 0, 252, 1) 0%, rgba(68, 207, 236, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ec00fc', endColorstr='#44cfec', GradientType=1);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.img-contato{
+    background: url(./formulario.jpg) no-repeat center;
+    background-size: cover;
+    height: 80vh;
+    opacity: 1.0;
+}
+.form-group input{
+    background: 2px transparent;
+}
+textarea{
+    width: 50%;
+    color: #FFF;
+    background: transparent;
+    outline: none;
+}
+
+
+ /* ------sobre nós-------- */
+  
+ .sobrenos {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 100px;
+  }
+  h1 {
+    font-size: 36px;
+    font-weight: 600;
+  }
+ 
+  .sobrenos-col {
+    flex-basis: 31%;
+    background: #e2e1e1;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+  }
+  .sobrenos-col p{
+    color: #181818;
+  }
+ 
+  .sobrenos-col:hover {
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .row {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+  }
+  @media (max-width: 700px) {
+    .row {
+      flex-direction: column;
+    }
+  }
+
+/* Footer */
+footer {
+  background-color: #140a48;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.social-icons {
+  margin-bottom: 20px;
+}
+
+.social-icon {
+  display: inline-block;
+  margin-right: 10px;
+  color: #ffff;
+  font-size: 20px;
+}
+
+.social-icon:hover {
+  color: #555;
+}

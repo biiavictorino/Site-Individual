@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/personagemPatroa.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./fotos/logo.png"/>
+
+    <title>Personagem - A Patroa</title>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+          <img src="./fotos/logo.png" alt="Logo do site" width="100px">
+      </div>
+    
+      <div class="hello">
+        <h3>Olá, <span id="b_usuario"></span>!</h3>
+    </div>
+    
+      <ul>
+          <li><a href="noticias.html"> <img src="./fotos/alto-falante.png" alt=""> News </a></li>
+          <li><a href="wallpaper.html"> <img src="./fotos/galeria-de-imagens.png" alt=""> Wallpaper</a></li>
+          <li><a href="#"> <img src="./fotos/grafico-de-barras.png" alt=""> Analistics</a></li>
+          <li><a href="quiz.html"> <img src="./fotos/pergunta.png" alt=""> Quiz</a></li>
+          <li><a href="personagens.html"> <img src="./fotos/design-de-personagem (1).png" alt=""> Personagens</a></li> 
+          <li><a href="index.html"><img src="./fotos/saida.png" alt="">ﾠSair</a></li> 
+        </ul>
+        
+    </div>
+    <div class="container">
+        <img src="./fotos/a-patroa.webp">
+        <div class="text-personagem">
+            
+            <h1>A-PATROA</h1>
+            <h5>
+                Gênero : Feminino  / Idade: 28
+            </h3>
+            <p>A-Patroa é uma mulher forte e confiante que dirige <br>
+               uma loja de música no meio de um bairro perigoso.<br>
+               Sua loja funciona como um porto seguro, qualquer<br>
+               um pode pedir ajuda a ela. Além disso, ela usa sua <br>
+               música para ajudar as pessoas a experimentar suas <br>
+               vidas de maneiras novas e diferentes para ajudá-las.</p>
+            </div>
+        </div>
+    
+</body>
+</html>
+<script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+</script>

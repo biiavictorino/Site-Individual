@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/quiz.css">
+    <link rel="icon" href="./fotos/logo.png"/>
+
+    <title>Quiz</title>
+</head>
+<body>
+    
+    <div class="navbar">
+        <div class="logo">
+          <img src="./fotos/logo.png" alt="Logo do site" width="100px">
+      </div>
+
+      <div class="hello">
+        <h3>Olá, <span id="b_usuario"></span>!</h3>
+    </div>
+
+      <ul>
+        <li><a href="noticias.html"> <img src="./fotos/alto-falante.png" alt=""> News </a></li>
+          <li><a href="wallpaper.html"> <img src="./fotos/galeria-de-imagens.png" alt=""> Wallpaper</a></li>
+          <li><a href="#"> <img src="./fotos/grafico-de-barras.png" alt=""> Analistics</a></li>
+          <li><a href="quiz.html"> <img src="./fotos/pergunta.png" alt=""> Quiz</a></li>
+          <li><a href="personagens.html"> <img src="./fotos/design-de-personagem (1).png" alt=""> Personagens</a></li> 
+          <li><a href="index.html"><img src="./fotos/saida.png" alt="">ﾠSair</a></li> 
+        </ul>
+      </div>
+    
+    <div class="quiz">
+      <h1>QUAL O NOME DESSE PERSONAGEM? </h1>
+      <img id="character-image" src="" alt="Personagem misterioso">
+      <br>
+      <input type="text" id="character-input" placeholder="Digite o nome do personagem">
+      <button onclick="checkAnswer()">Verificar</button>
+      <p id="result"></p>
+      <div id="final" class="final_resultado"></div>
+    </div>
+  </body>
+  </html>
+
+    <script>
+
+      b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+      var personagem = [
+        { name: 'alok', image: './fotos/personagens/Alok-1.jpg' },
+        { name: 'A-Patroa', image: './fotos/personagens/a-patroa.jpg' },
+        { name: 'maxim', image: './fotos/personagens/maxim.jpg' },
+        { name: 'moco', image: './fotos/personagens/moco.jpg' },
+        { name: 'chrono', image: './fotos/personagens/chrono.jpg' },
+        { name: 'wukong', image: './fotos/personagens/wukong-1.jpg' },
+        { name: 'jota', image: './fotos/personagens/Jota.jpg' },
+        { name: 'Laura', image: './fotos/personagens/laura.jpg' },
+        { name: 'Iris', image: './fotos/personagens/iris.jpg' },
+        { name: 'kelly', image: './fotos/personagens/kelly-1.jpg' }
+      ];
+
+      var currentIndex = 0;
+      var score = {
+        correct: 0,
+        incorrect: 0
+      };
+
+      function displayCurrentCharacter() {
+        var currentCharacter = personagem[currentIndex];
+        document.getElementById('character-image').src = currentCharacter.image;
+        document.getElementById('character-input').value = '';
+        document.getElementById('result').innerText = '';
+      }
+
+      function checkAnswer() {
+        var input = document.getElementById('character-input').value.toLowerCase();
+        var currentCharacter = personagem[currentIndex];
+
+        if (input === currentCharacter.name.toLowerCase()) {
+          document.getElementById('result').innerText = 'Parabéns!';
+          score.correct++;
+        } else {
+          score.incorrect++;
+        }
+
+        currentIndex++;
+
+        if (currentIndex >= personagem.length) {
+          showScore();
+        } else {
+          displayCurrentCharacter();
+        }
+      }
+
+      function showScore() {
+        var QuestoesPersonagens = personagem.length;
+        var TotalAcertos = score.correct;
+        var TotalErros = score.incorrect;
+
+        var percentage = (TotalAcertos / QuestoesPersonagens) * 100;
+
+        final.innerHTML += `Você acertou ${TotalAcertos} de ${QuestoesPersonagens}  perguntas. <br>
+        Acertos: ${TotalAcertos} <br> 
+        Erros: ${TotalErros} <br>
+        Sua pontuação é de ${percentage.toFixed()}% <br> `;
+      }
+
+      // Carrega o primeiro personagem ao carregar a página
+      window.onload = function() {
+        displayCurrentCharacter();
+      };
+    </script>

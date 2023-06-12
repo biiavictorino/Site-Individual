@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Galeria de Imagens</title>
+  <link rel="stylesheet" type="text/css" href="./css/wallpaper.css">
+  <link rel="icon" href="./fotos/logo.png"/>
+
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo">
+      <img src="./fotos/logo.png" alt="Logo do site" width="100px">
+  </div>
+
+  <div class="hello">
+    <h3>Olá, <span id="b_usuario"></span>!</h3>
+</div>
+
+  <ul>
+      <li><a href="noticias.html"> <img src="./fotos/alto-falante.png" alt=""> News </a></li>
+      <li><a href="wallpaper.html"> <img src="./fotos/galeria-de-imagens.png" alt=""> Wallpaper</a></li>
+      <li><a href="#"> <img src="./fotos/grafico-de-barras.png" alt=""> Analistics</a></li>
+      <li><a href="quiz.html"> <img src="./fotos/pergunta.png" alt=""> Quiz</a></li>
+      <li><a href="personagens.html"> <img src="./fotos/design-de-personagem (1).png" alt=""> Personagens</a></li> 
+      <li><a href="index.html"><img src="./fotos/saida.png" alt="">ﾠSair</a></li> 
+    </ul>
+  </div>
+  
+  <div class="container">
+
+    <div class="titulo-wallpaper">
+      <img class="banner-img" src="./fotos/fundoWallpaper.png" alt="" width="100%">
+    <h1 id="texto">Wallpapers</h1>
+  </div>
+  
+  <div class="gallery">
+    <a href="fotos/wallpaper.jpg" download>
+      <img src="fotos/wallpaper.jpg" alt="Imagem 1" width="400px">
+    </a>
+    <a href="fotos/wallpaper2.jpg" download>
+      <img src="fotos/wallpaper2.jpg" alt="Imagem 2" width="400px">
+    </a>
+    <a href="fotos/wallpaper3.jpg" download>
+      <img src="fotos/wallpaper3.jpg" alt="Imagem 1" width="400px">
+    </a>
+    <a href="fotos/wallpaper4.jpg" download>
+      <img src="fotos/wallpaper4.jpg" alt="Imagem 2" width="400px">
+    </a>
+    <a href="fotos/wallpaper5.jpg" download>
+      <img src="fotos/wallpaper5.jpg" alt="Imagem 1" width="400px">
+    </a>
+    <a href="fotos/wallpaper6.jpg" download>
+      <img src="fotos/wallpaper6.jpg" alt="Imagem 2" width="400px"><br>
+    </a>
+    <!-- Adicione mais imagens aqui -->
+
+  </div>  
+  <div id="loadMoreBtnContainer">
+    <button id="loadMoreBtn">Carregar mais</button>
+  </div>
+</body>
+</html>
+<script>
+
+b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+  var loadMoreBtn = document.getElementById('loadMoreBtn');
+  var gallery = document.querySelector('.gallery');
+
+  loadMoreBtn.addEventListener('click', function() {
+    // Simule um carregamento de imagens adicionais
+    var newImages = createNewImages();
+    
+    // Adicione as novas imagens à galeria
+    gallery.innerHTML += newImages;
+  });
+
+  function createNewImages() {
+    // Crie uma string com o HTML das novas imagens
+    var newImagesHTML = '';
+    
+    // Adicione mais imagens aqui
+    newImagesHTML = `
+      <a href="fotos/wallpaper7.jpg" download>
+        <img src="fotos/wallpaper7.jpg" alt="Imagem 3" width="400px">
+      </a>
+      <a href="fotos/wallpaper8.jpg" download>
+        <img src="fotos/wallpaper8.jpg" alt="Imagem 4" width="400px">
+      </a>
+      <a href="fotos/wallpaper9.jpg" download>
+        <img src="fotos/wallpaper9.jpg" alt="Imagem 4" width="400px">
+      </a>
+      <a href="fotos/wallpaper10.jpg" download>
+        <img src="fotos/wallpaper10.jpg" alt="Imagem 3" width="400px">
+      </a>
+      <a href="fotos/wallpaper11.jpg" download>
+        <img src="fotos/wallpaper11.jpg" alt="Imagem 4" width="400px">
+      </a>
+      <a href="fotos/wallpaper12.jpg" download>
+        <img src="fotos/wallpaper12.jpg" alt="Imagem 4" width="400px">
+      </a>
+      <a href="fotos/wallpaper13.jpg" download>
+        <img src="fotos/wallpaper13.jpg" alt="Imagem 3" width="400px">
+      </a>
+      <a href="fotos/wallpaper14.jpg" download>
+        <img src="fotos/wallpaper14.jpg" alt="Imagem 4" width="400px">
+      </a>
+      <a href="fotos/wallpaper15.jpg" download>
+        <img src="fotos/wallpaper15.jpg" alt="Imagem 4" width="400px">
+      </a>      
+    `;
+
+    return newImagesHTML;
+  }
+  
+});
+
+</script>

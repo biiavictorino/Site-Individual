@@ -1,0 +1,72 @@
+body {
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ffffff;
+    background-color: #000000;
+  
+}
+
+.logo{
+    display: flex;
+    margin-top: 30%;
+    margin-left: 70px;
+  }
+
+  .hello{
+    margin-top: 30%;
+    margin-left: 65px;
+    color: #fff;
+  }
+
+  .navbar {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 253px;
+    height: 150vh;
+    background-color: #140a48;
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 30%;
+  }
+  
+  .navbar li {
+    margin-bottom: 10px;
+    margin-left: 20%;
+    margin-top: 30px;
+    
+  }
+  
+  .navbar a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+  .navbar a:hover {
+    background-color: #140a48;
+    
+  }
+  .titulo-wallpaper {
+    position: relative; /* Adiciona um contexto de posicionamento para os elementos filhos */
+  }
+  
+  .titulo-wallpaper h1 {
+    position: absolute; /* Remove o elemento do fluxo normal e o posiciona em relação ao seu elemento pai */
+    top: 50%; /* Posiciona o elemento no meio verticalmente */
+    right:60%; /* Posiciona o elemento no meio horizontalmente */
+    transform: translate(-50%, -50%); /* Centraliza o elemento usando transformações */
+    color: #ffffff;; /* Cor do texto (opcional) */
+    font-size: 70px; /* Tamanho da fonte (opcional) */
+    text-align: center; /* Centraliza o texto horizontalmente (opcional) */
+    text-shadow: 2px 2px 2px #000;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+  }
+  

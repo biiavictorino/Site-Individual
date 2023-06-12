@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/personagemTatsuya.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./fotos/logo.png"/>
+
+    <title>Personagem - Tatsuya</title>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+          <img src="./fotos/logo.png" alt="Logo do site" width="100px">
+      </div>
+    
+      <div class="hello">
+        <h3>Olá, <span id="b_usuario"></span>!</h3>
+    </div>
+    
+      <ul>
+          <li><a href="noticias.html"> <img src="./fotos/alto-falante.png" alt=""> News </a></li>
+          <li><a href="wallpaper.html"> <img src="./fotos/galeria-de-imagens.png" alt=""> Wallpaper</a></li>
+          <li><a href="#"> <img src="./fotos/grafico-de-barras.png" alt=""> Analistics</a></li>
+          <li><a href="quiz.html"> <img src="./fotos/pergunta.png" alt=""> Quiz</a></li>
+          <li><a href="personagens.html"> <img src="./fotos/design-de-personagem (1).png" alt=""> Personagens</a></li> 
+          <li><a href="index.html"><img src="./fotos/saida.png" alt="">ﾠSair</a></li> 
+        </ul>
+        
+    </div>
+    <div class="container">
+        <img src="./fotos/Tatsuya.jpg">
+        <div class="text-personagem">
+            
+            <h1>TATSUYA</h1>
+            <h5>
+                Gênero : Masculino  / Idade: 16
+            </h3>
+            <p>Tatsuya está dividido entre seus sentimentos de <br>
+                traição e seu amor por sua família. Ele não sabe como <br>
+                lidar com essa dicotornia de sentimentos e de bom<br>
+                grado se deixa envolver em problemas. É só depois<br>
+                que ele e seu irmão, Shirou, precisam trabalhar <br>
+                juntos para resolver uma conspiração que ele<br>
+                percebe que não está sozinho no mundo e tem o<br>
+                poder de mudar seu ambiente para melhor.</p>
+            </div>
+        </div>
+    
+</body>
+</html>
+<script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+</script>
