@@ -79,7 +79,7 @@ function FazerLogin() {
                 sessionStorage.ID_USUARIO = json.id;
 
                 setTimeout(function () {
-                    window.location = "./wallpaper.html";
+                    window.location = "./inicio.html";
                 }, 1000); // apenas para exibir o loading
                 
             });

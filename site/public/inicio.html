@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/noticias.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./fotos/logo.png"/>
+
+    <title>Noticias</title>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+          <img src="./fotos/logo.png" alt="Logo do site" width="100px">
+      </div>
+    
+      <div class="hello">
+        <h3>Olá, <span id="b_usuario"></span>!</h3>
+    </div>
+    
+      <ul>
+          <li><a href="inicio.html"> <img src="./fotos/botao-de-inicio.png" alt=""> Inicio </a></li>
+          <li><a href="wallpaper.html"> <img src="./fotos/galeria-de-imagens.png" alt=""> Wallpaper</a></li>
+          <li><a href="dashboard.html"> <img src="./fotos/grafico-de-barras.png" alt=""> Analistics</a></li>
+          <li><a href="quiz.html"> <img src="./fotos/pergunta.png" alt=""> Quiz</a></li>
+          <li><a href="personagens.html"> <img src="./fotos/design-de-personagem (1).png" alt=""> Personagens</a></li> 
+          <li><a href="index.html"><img src="./fotos/saida.png" alt="">ﾠSair</a></li> 
+        </ul>
+        
+    </div>
+  
+    <div class="container">
+      <h1>Free Fire - História</h1>
+      <img src="./fotos/historia.jpg" alt="Free Fire" class="image">
+      <p class="story">Free Fire é um jogo eletrônico mobile de ação-aventura do gênero Battle Royale, desenvolvido pela 111dots Studio e publicado pela Garena. O jogo é inspirado em outros jogos Battle Royale, onde até 50 jogadores caem de paraquedas em uma ilha e batalham entre si até que reste apenas um vencedor. Os jogadores escolhem livremente o local de partida, pegam armas e suprimentos para aumentar suas chances de sobrevivência e derrotar os adversários.</p>
+    </div>
+    
+    <div class="box">
+      <h1>Escolha seu Personagem Favorito!</h1>
+      <form id="characterForm">
+        <label>
+          <input id="votar-id" type="radio" name="character" value="Alok"> Alok
+        </label><br>
+        <label>
+          <input id="votar-id" type="radio" name="character" value="Laura"> Laura
+        </label><br>
+        <label>
+          <input id="votar-id" type="radio" name="character" value="A-Patroa"> A-Patroa
+        </label><br>
+        <label>
+          <input id="votar-id" type="radio" name="character" value="Kelly"> Kelly
+        </label><br>
+        <label>
+          <input id="votar-id" type="radio" name="character" value="Santino"> Santino
+        </label><br>
+        <input id="votar-id" type="radio" name="character" value="Maxim"> Maxim
+        </label><br><br>
+        <button type="submit" class="bt_estilizado">Votar</button>
+      </form>
+      <p id="result"></p>
+    </div>
+</body>
+</html>
+<script>
+  b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    
+    document.getElementById('characterForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  
+  var selectedCharacter = document.querySelector('input[name="character"]:checked');
+
+  if (selectedCharacter) {
+    document.getElementById('result').textContent = "Seu personagem favorito é: " + selectedCharacter.value;
+  } else {
+    document.getElementById('result').textContent = "Por favor, selecione um personagem antes de votar.";
+  }
+});
+
+function votar() {
+var fkUsuario = sessionStoragem.ID_USUARIO;
+ var selectedCharacter = document.querySelector('input[name="character"]:checked');
+
+  if (selectedCharacter) {
+    document.getElementById('result').textContent = "Seu personagem favorito é: " + selectedCharacter.value;
+// Enviando o valor da nova input
+        fetch("/usuarios/votar/", {
+            method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            fkUsuarioServer: fkUsuario,
+            nomePersonagemServer:  fkPersonagem,
+        })
+    }).then(function (resposta) {
+   
+        // cadastro realizado
+       
+        if (resposta.ok) {
+            
+          alert('Deu certo')
+           
+        } else {
+            alert ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(#ERRO: ${resposta});
+    });
+   
+    return false;
+}
+}
+
+</script>

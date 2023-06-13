@@ -75,8 +75,42 @@ function cadastrar(req, res) {
             );
     }
 }
+function votar(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo votar.html
+    var fkUsuario = req.body.fkUsuarioServer;
+    var fkPersonagem = req.body.fkPersonagemServer;
+
+    console.log(fkUsuario);
+    console.log(fkPersonagem);
+
+    // Faça as validações dos valores
+    if (fkUsuario == undefined) {
+        res.status(400).send("Seu fkUsuario está undefined!");
+    } else if (fkPersonagem == undefined) {
+        res.status(400).send("Seu fkPersonagem está undefined!");
+    } else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.votar(fkUsuario, fkPersonagem)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    votar
 }

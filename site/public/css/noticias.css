@@ -52,21 +52,65 @@ body {
   .navbar a:hover {
     background-color: #140a48;
     
+
   }
-  .titulo-wallpaper {
-    position: relative; /* Adiciona um contexto de posicionamento para os elementos filhos */
-  }
-  
-  .titulo-wallpaper h1 {
-    position: absolute; /* Remove o elemento do fluxo normal e o posiciona em relação ao seu elemento pai */
-    top: 50%; /* Posiciona o elemento no meio verticalmente */
-    right:60%; /* Posiciona o elemento no meio horizontalmente */
-    transform: translate(-50%, -50%); /* Centraliza o elemento usando transformações */
-    color: #ffffff;; /* Cor do texto (opcional) */
-    font-size: 70px; /* Tamanho da fonte (opcional) */
-    text-align: center; /* Centraliza o texto horizontalmente (opcional) */
-    text-shadow: 2px 2px 2px #000;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    margin-left: 30%;
   }
   
+  .story {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .box {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(249, 249, 249, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #000000;
+    margin-left: 36%;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  button {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+  
+  #result {
+    font-size: 18px;
+  }
+
+  .bt_estilizado{
+    background: #ec00fc;
+    background: -moz-linear-gradient(-45deg, #ec00fc 0%, #44cfec 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, #ec00fc), color-stop(100%, #44cfec));
+    background: -webkit-linear-gradient(-45deg, #ec00fc 0%, #44cfec 100%);
+    background: -o-linear-gradient(-45deg, #ec00fc 0%, #44cfec 100%);
+    background: -ms-linear-gradient(-45deg, #ec00fc 0%, #44cfec 100%);
+    background: linear-gradient(135deg, #ec00fc 0%, #44cfec 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ec00fc', endColorstr='#44cfec', GradientType=1);
+    /*Ferramenta de Clip-path maker (estilizar o botão)*/
+    clip-path: polygon(90% 0, 100% 30%, 100% 100%, 0 100%, 0 0);
+  }

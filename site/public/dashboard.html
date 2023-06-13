@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/dashboards.css">
+  <title>Atividade ChartJs</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+          <img src="./fotos/logo.png" alt="Logo do site" width="100px">
+      </div>
+    
+      <div class="hello">
+        <h3>Olá, <span id="b_usuario"></span>!</h3>
+    </div>
+    
+      <ul>
+        <li><a href="inicio.html"> <img src="./fotos/botao-de-inicio.png" alt=""> Inicio </a></li>
+          <li><a href="wallpaper.html"> <img src="./fotos/galeria-de-imagens.png" alt=""> Wallpaper</a></li>
+          <li><a href="dashboard.html"> <img src="./fotos/grafico-de-barras.png" alt=""> Analistics</a></li>
+          <li><a href="quiz.html"> <img src="./fotos/pergunta.png" alt=""> Quiz</a></li>
+          <li><a href="personagens.html"> <img src="./fotos/design-de-personagem (1).png" alt=""> Personagens</a></li> 
+          <li><a href="index.html"><img src="./fotos/saida.png" alt="">ﾠSair</a></li> 
+        </ul>
+        
+    </div>
+      <h1 class="titulo-grafico">PERSONAGENS FAVORITOS!</h1>
+    <canvas id="myChart2" style="position: relative; height: 50vh; width: 50vw"></canvas>
+  </div>
+  <br><br>
+  <div class="tabela-wrapper">
+  <table class="tabela-nome">
+    <tr>
+        <td>Nome</td>
+        <td>Quantidade de Voto</td>
+    </tr>
+    <tr>
+        <td>Alok</td>
+        <td></td>
+    </tr>
+    
+    <tr>
+        <td>Laura</td>
+        <td></td>
+    </tr>
+    
+    <tr>
+        <td>A-Patroa</td>
+        <td></td>
+    </tr>
+    
+    <tr>
+        <td>Kelly</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Santino</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Maxim</td>
+        <td></td>
+    </tr>
+  </table>
+</div>
+</body>
+
+<script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    
+  const labels = ["Alok", "Laura", "A-Patroa", "Kelly", "Santino", "Maxim"];
+
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: "Curtidas",
+        backgroundColor: "#836df4",
+        borderColor: "#836df4",
+        data: [30, 29, 28, 25, 22, 23],
+      },
+    ],
+  };
+
+  const config = {
+    type: "line",
+    data: data,
+    Option: {},
+  };
+
+  const labels2 = ["Alok", "Laura", "A-Patroa", "Kelly", "Santino", "Maxim"];
+
+  const data2 = {
+    labels: labels2,
+    datasets: [
+      {
+        label: "Curtidas",
+        backgroundColor: "#836df4",
+        borderColor: "#836df4",
+        data: [22, 24, 27, 23, 20, 18],
+      },
+    ],
+  };
+
+  const config2 = {
+    type: "bar",
+    data: data2,
+    Option: {},
+  };
+</script>
+
+<script>
+  const myChart2 = new Chart(document.getElementById("myChart2"), config2);
+</script>
+
+</html>
