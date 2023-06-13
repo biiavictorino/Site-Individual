@@ -7,9 +7,13 @@ var usuarioController = require("../controllers/usuarioController");
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })
-//Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
+
 router.post("/votar", function (req, res) {
-    usuarioController.cadastrar(req, res);
+    usuarioController.votar(req, res);
+})
+
+router.get("/exibirGrafico", function (req, res) {
+    usuarioController.exibirGrafico(req, res);
 })
 
 

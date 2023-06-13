@@ -40,23 +40,23 @@
       <h1>Escolha seu Personagem Favorito!</h1>
       <form id="characterForm">
         <label>
-          <input id="votar-id" type="radio" name="character" value="Alok"> Alok
+          <input id="votar-id" type="radio" name="character" value="100"> Alok
         </label><br>
         <label>
-          <input id="votar-id" type="radio" name="character" value="Laura"> Laura
+          <input id="votar-id" type="radio" name="character" value="101"> Laura
         </label><br>
         <label>
-          <input id="votar-id" type="radio" name="character" value="A-Patroa"> A-Patroa
+          <input id="votar-id" type="radio" name="character" value="102"> A-Patroa
         </label><br>
         <label>
-          <input id="votar-id" type="radio" name="character" value="Kelly"> Kelly
+          <input id="votar-id" type="radio" name="character" value="103"> Kelly
         </label><br>
         <label>
-          <input id="votar-id" type="radio" name="character" value="Santino"> Santino
+          <input id="votar-id" type="radio" name="character" value="104"> Santino
         </label><br>
-        <input id="votar-id" type="radio" name="character" value="Maxim"> Maxim
+        <input id="votar-id" type="radio" name="character" value="105"> Maxim
         </label><br><br>
-        <button type="submit" class="bt_estilizado">Votar</button>
+        <button type="submit" class="bt_estilizado" onclick="votar()">Votar</button>
       </form>
       <p id="result"></p>
     </div>
@@ -78,10 +78,11 @@
 });
 
 function votar() {
-var fkUsuario = sessionStoragem.ID_USUARIO;
+var fkUsuario = sessionStorage.ID_USUARIO;
  var selectedCharacter = document.querySelector('input[name="character"]:checked');
 
   if (selectedCharacter) {
+    var fkPersonagem = selectedCharacter.value;
     document.getElementById('result').textContent = "Seu personagem favorito é: " + selectedCharacter.value;
 // Enviando o valor da nova input
         fetch("/usuarios/votar/", {
@@ -93,21 +94,20 @@ var fkUsuario = sessionStoragem.ID_USUARIO;
             // crie um atributo que recebe o valor recuperado aqui
             // Agora vá para o arquivo routes/usuario.js
             fkUsuarioServer: fkUsuario,
-            nomePersonagemServer:  fkPersonagem,
+            fkPersonagemServer:  fkPersonagem,
         })
     }).then(function (resposta) {
    
         // cadastro realizado
        
         if (resposta.ok) {
-            
-          alert('Deu certo')
+            alert("voto computado")
            
         } else {
-            alert ("Houve um erro ao tentar realizar o cadastro!");
+            alert ("Houve um erro ao tentar votar!");
         }
     }).catch(function (resposta) {
-        console.log(#ERRO: ${resposta});
+        console.log('#ERRO:',resposta);
     });
    
     return false;

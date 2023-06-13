@@ -38,12 +38,7 @@ CREATE TABLE votar (
     FOREIGN KEY (fkPersonagem) REFERENCES personagem(idPersonagem)
 );
 
-CREATE USER [usuarioParaAPIWebDataViz_datawriter_datareader]
-WITH PASSWORD = '#Gf_senhaParaAPIWebDataViz',
-DEFAULT_SCHEMA = dbo;
-
-EXEC sys.sp_addrolemember @rolename = N'db_datawriter',
-@membername = N'usuarioParaAPIWebDataViz_datawriter_datareader';
-
-EXEC sys.sp_addrolemember @rolename = N'db_datareader',
-@membername = N'usuarioParaAPIWebDataViz_datawriter_datareader';
+select personagem.nome, count(fkPersonagem)'Votos' from votar 
+			join personagem on personagem.idPersonagem = votar.fkPersonagem
+						group by fkPersonagem;
+	

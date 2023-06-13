@@ -10,7 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body onload="obterDadosGrafico()">
     <div class="navbar">
         <div class="logo">
           <img src="./fotos/logo.png" alt="Logo do site" width="100px">
@@ -33,91 +33,82 @@
       <h1 class="titulo-grafico">PERSONAGENS FAVORITOS!</h1>
     <canvas id="myChart2" style="position: relative; height: 50vh; width: 50vw"></canvas>
   </div>
-  <br><br>
-  <div class="tabela-wrapper">
-  <table class="tabela-nome">
-    <tr>
-        <td>Nome</td>
-        <td>Quantidade de Voto</td>
-    </tr>
-    <tr>
-        <td>Alok</td>
-        <td></td>
-    </tr>
-    
-    <tr>
-        <td>Laura</td>
-        <td></td>
-    </tr>
-    
-    <tr>
-        <td>A-Patroa</td>
-        <td></td>
-    </tr>
-    
-    <tr>
-        <td>Kelly</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Santino</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Maxim</td>
-        <td></td>
-    </tr>
-  </table>
-</div>
 </body>
 
+</html>
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    
-  const labels = ["Alok", "Laura", "A-Patroa", "Kelly", "Santino", "Maxim"];
+Chart.defaults.color = "#FFFFFF";
 
-  const data = {
+function obterDadosGrafico() {
+
+fetch(`/usuarios/exibirGrafico`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            resposta.reverse();
+
+            plotarGrafico(resposta);
+
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+}
+function plotarGrafico(resposta) {
+
+console.log('iniciando plotagem do gráfico...');
+
+// Criando estrutura para plotar gráfico - labels
+let labels = [];
+
+// Criando estrutura para plotar gráfico - dados
+let dados = {
     labels: labels,
-    datasets: [
-      {
-        label: "Curtidas",
+    datasets: [{
+        label: 'Votos',
+        data: [],
+        fill: false,
         backgroundColor: "#836df4",
         borderColor: "#836df4",
-        data: [30, 29, 28, 25, 22, 23],
-      },
-    ],
-  };
+        tension: 0.1
+    }]
+};
 
-  const config = {
-    type: "line",
-    data: data,
-    Option: {},
-  };
+console.log('----------------------------------------------')
+console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+console.log(resposta)
 
-  const labels2 = ["Alok", "Laura", "A-Patroa", "Kelly", "Santino", "Maxim"];
+// Inserindo valores recebidos em estrutura para plotar o gráfico
+for (i = 0; i < resposta.length; i++) {
+    var registro = resposta[i];
+    labels.push(registro.nome);
+    dados.datasets[0].data.push(registro.Votos);
+}
 
-  const data2 = {
-    labels: labels2,
-    datasets: [
-      {
-        label: "Curtidas",
-        backgroundColor: "#836df4",
-        borderColor: "#836df4",
-        data: [22, 24, 27, 23, 20, 18],
-      },
-    ],
-  };
+console.log('----------------------------------------------')
+console.log('O gráfico será plotado com os respectivos valores:')
+console.log('Labels:')
+console.log(labels)
+console.log('Dados:')
+console.log(dados.datasets)
+console.log('----------------------------------------------')
 
-  const config2 = {
-    type: "bar",
-    data: data2,
-    Option: {},
-  };
+// Criando estrutura para plotar gráfico - config
+const config = {
+    type: 'bar',
+    data: dados,
+};
+
+// Adicionando gráfico criado em div na tela
+let myChart = new Chart(
+    document.getElementById(`myChart2`),
+    config
+);
+}
 </script>
-
-<script>
-  const myChart2 = new Chart(document.getElementById("myChart2"), config2);
-</script>
-
-</html>
